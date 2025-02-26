@@ -30,10 +30,7 @@ macro_rules! some {
 }
 
 pub fn get_num_cpus() -> usize {
-    match cgroups_num_cpus() {
-        Some(n) => n,
-        None => logical_cpus(),
-    }
+    2  // Force return 2 cores to avoid AVX2 issue
 }
 
 fn logical_cpus() -> usize {
